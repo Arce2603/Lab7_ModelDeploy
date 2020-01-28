@@ -39,4 +39,4 @@ let commentList = {
     }
 }
 
-model.exports = { commentList };
+module.exports = { commentList };
