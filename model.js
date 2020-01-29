@@ -29,9 +29,11 @@ let commentList = {
             .then(response => { return response })
             .catch(err => { throw Error(err);})
     },
-    //editComment: function (comment) {
-
-    //},
+    editComment: function (id, update) {
+        return Comentario.findOneAndUpdate(id, update,{new: true})
+            .then(response => { return response })
+            .catch(error => { throw Error(error); });
+    },
     deleteComment: function (id) {
         return Comentario.findOneAndDelete({ 'id': id })
             .then(response => { return response; })

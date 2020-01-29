@@ -2,6 +2,7 @@ let express = require('express');
 let morgan = require('morgan');
 let uuid = require('uuid');
 let bodyParser = require('body-parser');
+let mongoose = require('mongoose');
 let jsonParser = bodyParser.json();
 let app = express(); 
 let { commentList } = require('./model'); 
@@ -131,7 +132,21 @@ app.put('/blog-api/actualizar-comentario/:id', jsonParser, (req, res) => {
             if ((contenido && contenido !== '')
                 || (titulo && titulo !== '')
                 || (autor && autor !== '')) {
+                if (titulo)
+                    objSend.push(titulo);
+                if (autor)
+                    objSend.push(autor);
+                if (contenido)
+                    objSend.push(contenido);
                 console.log("update");
+                console.log(objSend);
+                commentList.editComment(id, objSend)
+                    .then(response => {
+                        return res.status(202).json({ response });
+                })
+                    .catch(error => {
+                    res.statusMessage = 'ID no existe en comentarios';
+                    return res.status(404).send();});
             }
             else {
                 res.statusMessage = "No hay campo a modificar";
