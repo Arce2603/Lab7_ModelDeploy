@@ -133,11 +133,11 @@ app.put('/blog-api/actualizar-comentario/:id', jsonParser, (req, res) => {
                 || (titulo && titulo !== '')
                 || (autor && autor !== '')) {
                 if (titulo)
-                    objSend.push(titulo);
+                    objSend.titulo = titulo;
                 if (autor)
-                    objSend.push(autor);
+                    objSend.autor=autor;
                 if (contenido)
-                    objSend.push(contenido);
+                    objSend.contenido=contenido;
                 console.log("update");
                 console.log(objSend);
                 commentList.editComment(id, objSend)
