@@ -1,5 +1,5 @@
 function loadComments() {
-    let url = 'http://localhost:8081/blog-api/comentarios';
+    let url = 'https://enigmatic-castle-31000.herokuapp.com/blog-api/comentarios';
     let settings = {
         method: "GET"
     };
@@ -47,7 +47,7 @@ function watchRemove() {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         let id = document.getElementById('bId');
-        let url = 'http://localhost:8081/blog-api/remover-comentario/' + id.value;
+        let url = 'https://enigmatic-castle-31000.herokuapp.com/blog-api/remover-comentario/' + id.value;
         let settings = {
             method: "DELETE"
         };
@@ -76,7 +76,7 @@ function watchNewComm() {
         let vAutor = document.getElementById('nAutor');
         let vTitulo = document.getElementById('nTitulo');
         let vContenido = document.getElementById('nComentario');
-        let url = 'http://localhost:8081/blog-api/nuevo-comentario';
+        let url = 'https://enigmatic-castle-31000.herokuapp.com/blog-api/nuevo-comentario';
         let data = {
             autor: vAutor.value,
             titulo: vTitulo.value,
@@ -116,7 +116,7 @@ function watchUpdate() {
         let vAutor = document.getElementById('aAutor');
         let vTitulo = document.getElementById('aTitulo');
         let vContenido = document.getElementById('aComentario');
-        let url = 'http://localhost:8081/blog-api/actualizar-comentario/' + vId.value;
+        let url = 'https://enigmatic-castle-31000.herokuapp.com/blog-api/actualizar-comentario/' + vId.value;
         let settings = {
             method: "PUT",
             headers: { "Content-type": "application/json"},
@@ -154,7 +154,7 @@ function watchFilterAuthor() {
         event.preventDefault();
         let autor = document.getElementById('porAutor');
         console.log(autor.value);
-        let url = 'http://localhost:8081/blog-api/comentarios-por-autor?autor='+autor.value;
+        let url = 'https://enigmatic-castle-31000.herokuapp.com/blog-api/comentarios-por-autor?autor='+autor.value;
         let settings = {
             method: "GET"
         };
