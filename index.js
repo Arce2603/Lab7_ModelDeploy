@@ -94,7 +94,8 @@ app.post('/blog-api/nuevo-comentario',jsonParser, (req, res) => {
         commentList.addComment(comm)
             .then(result => { return res.status(201).json(result); })
             .catch(error => {
-                return res.status(400).send(error);
+                console.log(error);
+                return res.status(400).send();
             });
     }
     else {
