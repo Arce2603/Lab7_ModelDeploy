@@ -55,6 +55,7 @@ function watchRemove() {
             .then(response => {
                 if (response.ok) {
                     document.getElementById('borrarE').style.display = 'none';
+                    id.value = '';
                     return response.json();
                 }
                 else {
@@ -92,7 +93,7 @@ function watchNewComm() {
                 if (response.ok) {
                     document.getElementById('nuevoComentE').style.display = 'none';
                     vAutor.value = '';
-                    vContenido.vContenido = '';
+                    vContenido.value = '';
                     vTitulo.value = '';
                     return response.json();
                 }
@@ -132,7 +133,7 @@ function watchUpdate() {
                 if (response.ok) {
                     document.getElementById('actualizaE').style.display = 'none';
                     vAutor.value = '';
-                    vContenido.vContenido = '';
+                    vContenido.value = '';
                     vTitulo.value = '';
                     vId.value = '';
                     return response.json();
